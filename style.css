@@ -1,20 +1,15 @@
 @font-face {
   font-family: 'Inconsolata';
-  /* font-style: normal; */
-  /* font-weight: 400; */
   src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(fonts/inconsolata-v16-latin-regular.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'Playfair Display';
-  /* font-style: normal; */
-  /* font-weight: 400; */
   src: local('Playfair Display Regular'), local('PlayfairDisplay-Regular'), url(fonts/playfair-display-v13-latin-regular.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'Ubuntu';
-  /* font-style: normal; */
   font-weight: 300;
   src: local('Ubuntu Light'), local('Ubuntu-Light'), url(fonts/ubuntu-v11-latin-300.woff2) format('woff2');
 }
@@ -44,22 +39,18 @@ button:hover {
 
 header {
 	max-width: 1060px;
-	margin: 70px auto 85px auto;
-	padding: 0 10px;
-}
+	margin: 70px auto 170px auto;
+ }
 
 nav a {
 	padding-left: 120px;
-	padding-top: 10px;
 }
 
-.logoNav h1,
-.logoNav a {
-	margin: 0;
+.logo {
 	float: left;
 }
 
-.navRight {
+.navBar {
 	float: right;
 }
 
@@ -67,10 +58,11 @@ nav a {
 	clear: both;
 }
 
-h1 {
-	font: bold 36px Inconsolata, monospace;
-	font-variant: small-caps;
+header h1 {
+	font: bold 28px 'Inconsolata', monospace;
+	text-transform: uppercase;
 	letter-spacing: 5px;
+	margin: 0;
 }
 
 nav a {
@@ -80,7 +72,7 @@ nav a {
 }
 
 h4 {
-	font: bold 20px Ubuntu, sans-serif;
+	font: bold 20px 'Ubuntu', sans-serif;
 	font-variant: small-caps;
 	color: #b4ad9e;
 }
@@ -152,8 +144,7 @@ footer {
 	width: 420px;
 }
 
-article.signUp {
-	position: relative;
+.signUp {
 	background-color: #f0f0f0;
 	height: 285px;
 	margin-bottom: 150px;
@@ -169,7 +160,7 @@ input {
 	width: 350px;
 }
 
-input[type=email] {
+input[type="email"] {
 	border: none;
 	outline: none;
 	background-color: #f0f0f0;
@@ -259,18 +250,18 @@ footer span {
 }
 
 @media (max-width: 768px) {
-	.logoNav h1 {
+	.logo {
 		margin-bottom: 20px;
 		margin-left: 3px;
 	}
 	nav a {
 		padding-left: 0;
 	}
-	.navRight {
+	.navBar {
 		display: grid;
 	}
-	.logoNav h1,
-	.navRight,
+	.logo,
+	.navBar,
 	footer,
 	footer .follow {
 		float: none;
