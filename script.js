@@ -45,14 +45,14 @@ submit.addEventListener('click', function() {
 		} else {
 			arrEmails.push(document.querySelector('input').value);
 
-			const obj = {
+			const objEmails = {
 				data: arrEmails
 			};
-			JSON.stringify(obj);
-			const str = JSON.stringify(obj);
-			JSON.parse(str);
+			JSON.stringify(objEmails);
+			const strEmails = JSON.stringify(objEmails);
+			JSON.parse(strEmails);
 
-			localStorage.setItem('emails', str);
+			localStorage.setItem('emails', strEmails);
 
 			setTimeout(function() {
 				document.querySelector('input').value = '';
@@ -74,8 +74,8 @@ submit.addEventListener('click', function() {
 
 const button = document.querySelector('.loadMore');
 button.addEventListener('click', function() {
-	let elements = document.createElement('div');
-	elements.innerHTML = `
+	let loadItems = document.createElement('div');
+	loadItems.innerHTML = `
 	<div class="wrapper">
 		<div class="row row4">
 			<article class="smallPost leftPost">
@@ -97,11 +97,11 @@ button.addEventListener('click', function() {
 		</div>
 	</div>
 	`
-	document.querySelector('.row3').insertAdjacentElement('afterend', elements);
+	document.querySelector('.row3').insertAdjacentElement('afterend', loadItems);
 
 	setTimeout(function() {
-	let elements = document.createElement('div');
-	elements.innerHTML = `
+	loadItems = document.createElement('div');
+	loadItems.innerHTML = `
 	<div class="wrapper">
 		<div class="row row5">
 			<article class="smallPost leftPost">
@@ -123,12 +123,12 @@ button.addEventListener('click', function() {
 		</div>
 	</div>
 	`
-	document.querySelector('.row4').insertAdjacentElement('afterend', elements);
+	document.querySelector('.row4').insertAdjacentElement('afterend', loadItems);
 	}, 1500);
 
 	setTimeout(function() {
-	let elements = document.createElement('div');
-	elements.innerHTML = `
+	loadItems = document.createElement('div');
+	loadItems.innerHTML = `
 	<div class="wrapper">
 		<div class="row row6">
 			<article class="smallPost leftPost">
@@ -150,6 +150,6 @@ button.addEventListener('click', function() {
 		</div>
 	</div>
 	`
-	document.querySelector('.row5').insertAdjacentElement('afterend', elements);
+	document.querySelector('.row5').insertAdjacentElement('afterend', loadItems);
 	}, 3000);
 })
