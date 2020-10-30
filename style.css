@@ -235,7 +235,7 @@ footer span {
 
 @media (max-width: 992px) {
 	nav a {
-		padding-left: 80px;
+		padding-left: 50px;
 	}
 	.leftPost {
 		margin-bottom: 100px;
