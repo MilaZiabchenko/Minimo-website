@@ -223,8 +223,7 @@ footer {
 	min-height: 100px;
 	line-height: 100px;
 	margin-top: 500px;
-	padding-left: 150px;
-	padding-right: 70px;
+	padding: 0 100px;
 }
 
 footer a,
@@ -256,7 +255,6 @@ footer span {
 
 	footer a,
 	footer span {
-		color: #000;
 		padding: 10px;
 	}
 }
