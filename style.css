@@ -86,7 +86,7 @@ p {
 	line-height: 1.8em;
 }
 
-.loadMore {
+.load-more {
 	font: bold 20px 'Playfair Display', serif;
 	color: #626262;
 }
@@ -96,26 +96,26 @@ footer {
 	color: #000;
 }
 
-.mainImage {
+.main-image {
 	width: 100%;
 	max-width: 1060px;
 	margin: 0 auto;
 	display: block;
 }
 
-.mainPost {
+.main-post {
 	width: 100%;
 	max-width: 900px;
 	margin: 95px auto 0 auto;
 }
 
-.mainPost h4,
-.mainPost h2,
-.mainPost p {
+.main-post h4,
+.main-post h2,
+.main-post p {
 	padding: 0 20px;
 }
 
-.mainArticle {
+.main-article {
 	margin-bottom: 135px;
 }
 
@@ -125,7 +125,7 @@ footer {
 	text-align: center;
 }
 
-.smallPost {
+.small-post {
 	width: 100%;
 	max-width: 420px;
 	margin: 0 30px;
@@ -142,7 +142,7 @@ footer {
 	width: 420px;
 }
 
-.signUp {
+.sign-up {
 	background-color: #f0f0f0;
 	height: 285px;
 	margin-bottom: 150px;
@@ -236,25 +236,7 @@ footer span {
 	nav a {
 		padding-left: 50px;
 	}
-	.leftPost {
+	.left-post {
 		margin-bottom: 100px;
-	}
-}
-
-@media (max-width: 768px) {
-	header {
-		justify-content: space-around;
-	}
-
-	h1,
-	ul {
-		text-align: center;
-		width: 100%;
-		padding: 0;
-	}
-
-	footer a,
-	footer span {
-		padding: 10px;
 	}
 }
