@@ -28,7 +28,7 @@ function validateForm() {
 		return false;
 	}
 
-	if (email.includes('@') === false) {
+	else if (email.includes('@') === false) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
 			const flashMessage = document.createElement('div');
@@ -51,7 +51,7 @@ function validateForm() {
 		return false;
 	}
 
-	if (email.length < 10) {
+	else if (email.length < 10) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
 			const flashMessage = document.createElement('div');
