@@ -9,66 +9,50 @@ function validateForm() {
 	if (email === '') {
 		setTimeout(() => {
 			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `
-				<div class="flash red">
-					<p class="email-validation red">email is required!</p>
-				</div>
-			`;
+			flashMessage.innerHTML = `<p>email is required!</p>`;
+			flashMessage.classList.add('flash', 'red');
 			document
 				.querySelector('.flash-message-container')
 				.insertAdjacentElement('beforeend', flashMessage);
 		}, 500);
 
 		setTimeout(() => {
-			document
-				.querySelector('.flash')
-				.parentNode.removeChild(document.querySelector('.flash'));
+			const flash = document.querySelector('.flash');
+			flash.remove();
 		}, 5000);
 
 		return false;
-	}
-
-	else if (email.includes('@') === false) {
+	} else if (email.includes('@') === false) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
 			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `
-				<div class="flash red">
-					<p class="email-validation red">email must include '@'!</p>
-				</div>
-			`;
+			flashMessage.innerHTML = `<p class="red">email must include '@'!</p>`;
+			flashMessage.classList.add('flash', 'red');
 			document
 				.querySelector('.flash-message-container')
 				.insertAdjacentElement('beforeend', flashMessage);
 		}, 500);
 
 		setTimeout(() => {
-			document
-				.querySelector('.flash')
-				.parentNode.removeChild(document.querySelector('.flash'));
+			const flash = document.querySelector('.flash');
+			flash.remove();
 		}, 5000);
 
 		return false;
-	}
-
-	else if (email.length < 10) {
+	} else if (email.length < 10) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
 			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `
-			<div class="flash red">
-				<p class="email-validation red">email must be at least 8 chars!</p>
-			</div>
-			`;
+			flashMessage.innerHTML = `<p class="red">email must be at least 8 chars!</p>`;
+			flashMessage.classList.add('flash', 'red');
 			document
 				.querySelector('.flash-message-container')
 				.insertAdjacentElement('beforeend', flashMessage);
 		}, 500);
 
 		setTimeout(() => {
-			document
-				.querySelector('.flash')
-				.parentNode.removeChild(document.querySelector('.flash'));
+			const flash = document.querySelector('.flash');
+			flash.remove();
 		}, 5000);
 
 		return false;
@@ -87,29 +71,24 @@ function validateForm() {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
 			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `
-				<div class="flash green">
-					<p class="email-validation green">your email is accepted :)</p>
-				</div>
-				`;
+			flashMessage.innerHTML = `<p class="green">your email is accepted :)</p>`;
+			flashMessage.classList.add('flash', 'green');
 			document
 				.querySelector('.flash-message-container')
 				.insertAdjacentElement('beforeend', flashMessage);
 		}, 500);
 
 		setTimeout(() => {
-			document
-				.querySelector('.flash')
-				.parentNode.removeChild(document.querySelector('.flash'));
+			const flash = document.querySelector('.flash');
+			flash.remove();
 		}, 5000);
 	}
 }
 
 const button = document.querySelector('.load-more');
 button.addEventListener('click', () => {
-	let loadItems = document.createElement('div');
+	let loadItems = document.createElement('section');
 	loadItems.innerHTML = `
-	<div class="wrapper">
 		<div class="row row4">
 			<article class="small-post left-post">
 				<img class="image" src="img/image8.jpg" alt="image8">
@@ -128,16 +107,15 @@ button.addEventListener('click', () => {
 				</p>
 			</article>
 		</div>
-	</div>
 	`;
+	loadItems.classList.add('wrapper');
 	document
 		.querySelector('.row3')
 		.insertAdjacentElement('afterend', loadItems);
 
 	setTimeout(() => {
-		loadItems = document.createElement('div');
+		loadItems = document.createElement('section');
 		loadItems.innerHTML = `
-	<div class="wrapper">
 		<div class="row row5">
 			<article class="small-post left-post">
 				<img class="image" src="img/image10.jpg" alt="image10">
@@ -156,17 +134,16 @@ button.addEventListener('click', () => {
 				</p>
 			</article>
 		</div>
-	</div>
 	`;
+		loadItems.classList.add('wrapper');
 		document
 			.querySelector('.row4')
 			.insertAdjacentElement('afterend', loadItems);
 	}, 1500);
 
 	setTimeout(() => {
-		loadItems = document.createElement('div');
+		loadItems = document.createElement('section');
 		loadItems.innerHTML = `
-	<div class="wrapper">
 		<div class="row row6">
 			<article class="small-post left-post">
 				<img class="image" src="img/image12.jpg" alt="image12">
@@ -185,8 +162,8 @@ button.addEventListener('click', () => {
 				</p>
 			</article>
 		</div>
-	</div>
 	`;
+		loadItems.classList.add('wrapper');
 		document
 			.querySelector('.row5')
 			.insertAdjacentElement('afterend', loadItems);
