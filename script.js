@@ -85,12 +85,12 @@ function validateForm() {
 	}
 }
 
-const button = document.querySelector('.load-more');
+const button = document.querySelector('button');
 button.addEventListener('click', () => {
 	let loadItems = document.createElement('section');
 	loadItems.innerHTML = `
-		<div class="row row4">
-			<article class="small-post left-post">
+		<div class="grid row row4">
+			<article class="small-post">
 				<img class="image" src="img/image8.jpg" alt="image8">
 				<h4><a href="#">photodiary</a></h4>
 				<h2>Proident eu est ad labore.</h2>
@@ -116,8 +116,8 @@ button.addEventListener('click', () => {
 	setTimeout(() => {
 		loadItems = document.createElement('section');
 		loadItems.innerHTML = `
-		<div class="row row5">
-			<article class="small-post left-post">
+		<div class="grid row row5">
+			<article class="small-post">
 				<img class="image" src="img/image10.jpg" alt="image10">
 				<h4><a href="#">lifestyle</a></h4>
 				<h2>Proident eu est ad labore.</h2>
@@ -144,8 +144,8 @@ button.addEventListener('click', () => {
 	setTimeout(() => {
 		loadItems = document.createElement('section');
 		loadItems.innerHTML = `
-		<div class="row row6">
-			<article class="small-post left-post">
+		<div class="grid row row6">
+			<article class="small-post">
 				<img class="image" src="img/image12.jpg" alt="image12">
 				<h4><a href="#">travel</a></h4>
 				<h2>Proident eu est ad labore.</h2>

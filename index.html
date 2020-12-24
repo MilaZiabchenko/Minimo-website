@@ -14,24 +14,28 @@
 
 	<body>
 		<header>
-			<div>
+			<div class="container flex">
 				<h1>minim&#248;</h1>
+				<nav>
+					<ul>
+						<li><a href="#">lifestyle</a></li>
+						<li><a href="#">photodiary</a></li>
+						<li><a href="#">music</a></li>
+						<li><a href="#">travel</a></li>
+					</ul>
+				</nav>
 			</div>
-			<nav>
-				<ul>
-					<li><a href="#">lifestyle</a></li>
-					<li><a href="#">photodiary</a></li>
-					<li><a href="#">music</a></li>
-					<li><a href="#">travel</a></li>
-				</ul>
-			</nav>
 		</header>
 
 		<main>
-			<section>
+			<section class="main-blog">
 				<article class="main-article">
-					<img class="main-image" src="img/image1.png" alt="image1" />
-					<div class="main-post">
+					<img
+						class="main-image container"
+						src="img/image1.png"
+						alt="image1"
+					/>
+					<div class="main-post wrapper">
 						<h4><a href="#">photodiary</a></h4>
 						<h2>The perfect weekend getaway</h2>
 						<p>
@@ -62,9 +66,9 @@
 				</article>
 			</section>
 
-			<section class="wrapper">
-				<div class="row row1">
-					<article class="small-post left-post">
+			<section class="blog wrapper">
+				<div class="grid row row1">
+					<article class="small-post">
 						<img class="image" src="img/image2.png" alt="image2" />
 						<h4><a href="#">music</a></h4>
 						<h2>More than just a music festival</h2>
@@ -89,8 +93,8 @@
 					</article>
 				</div>
 
-				<div class="row row2">
-					<article class="small-post left-post">
+				<div class="grid row row2">
+					<article class="small-post">
 						<img class="image" src="img/image4.png" alt="image4" />
 						<h4><a href="#">travel</a></h4>
 						<h2>American dream</h2>
@@ -130,14 +134,14 @@
 						id="submit"
 						title="Submit"
 					/>
-					<hr class="line" />
+					<hr class="bottom-line" />
 				</form>
 				<div class="flash-message-container"></div>
 			</section>
 
-			<section class="wrapper">
-				<div class="row row3">
-					<article class="small-post left-post">
+			<section class="blog wrapper">
+				<div class="grid row row3">
+					<article class="small-post">
 						<img class="image" src="img/image6.png" alt="image6" />
 						<h4><a href="#">lifestyle</a></h4>
 						<h2>Top 10 songs for hiking</h2>
@@ -161,51 +165,40 @@
 						</p>
 					</article>
 				</div>
-				<button class="load-more">Load more</button>
 			</section>
+
+			<button>Load more</button>
 		</main>
 
 		<footer>
-			<div>
-				<ul>
-					<li>
-						<a href="#">Terms and conditions</a>
-					</li>
-					<li>
-						<a href="#">Privacy</a>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<ul>
-					<li>
-						<span>Follow</span>
-					</li>
-					<li>
-						<a href="#"
-							><img
-								src="img/facebook.png"
-								alt="Facebook"
-								title="Facebook"
-						/></a>
-					</li>
-					<li>
-						<a href="#"
-							><img
-								src="img/twitter.png"
-								alt="Twitter"
-								title="Twitter"
-						/></a>
-					</li>
-					<li>
-						<a href="#"
-							><img
-								src="img/instagram.png"
-								alt="Instagram"
-								title="Instagram"
-						/></a>
-					</li>
-				</ul>
+			<div class="container flex">
+				<nav>
+					<ul>
+						<li><a href="#">Terms and conditions</a></li>
+						<li><a href="#">Privacy</a></li>
+					</ul>
+				</nav>
+				<div class="social">
+					<span>Follow</span>
+					<a href="#"
+						><img
+							src="img/facebook.png"
+							alt="Facebook"
+							title="Facebook"
+					/></a>
+					<a href="#"
+						><img
+							src="img/twitter.png"
+							alt="Twitter"
+							title="Twitter"
+					/></a>
+					<a href="#"
+						><img
+							src="img/instagram.png"
+							alt="Instagram"
+							title="Instagram"
+					/></a>
+				</div>
 			</div>
 		</footer>
 
