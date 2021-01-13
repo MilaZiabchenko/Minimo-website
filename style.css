@@ -81,6 +81,11 @@ a:hover {
 	box-sizing: border-box;
 }
 
+*::selection {
+	background-color: var(--green-color);
+	color: #fff;
+}
+
 body {
 	width: 100%;
 	margin: 0 auto;
@@ -133,7 +138,7 @@ h4 {
 }
 
 header {
-	margin: 50px auto 80px;
+	margin: 30px auto 100px;
 	padding: 10px;
 }
 
@@ -142,19 +147,10 @@ header nav li {
 }
 
 .main-post {
-	margin: 85px auto 0;
+	margin: 50px auto 0;
 }
 
-.main-post h4,
-.main-post h2,
-.main-post p {
-	padding: 0 20px;
-}
-
-.main-article {
-	margin-bottom: 120px;
-}
-
+.main-article,
 .row {
 	margin-bottom: 100px;
 }
@@ -167,6 +163,18 @@ header nav li {
 .image {
 	width: 420px;
 	height: 280px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-image,
+.image {
+	transition: transform 0.2s ease-in;
+}
+
+.main-image:hover,
+.image:hover {
+	position: relative;
+	transform: scale(1.02);
 }
 
 .sign-up {
@@ -200,7 +208,7 @@ input[type='email'] {
 	right: 10px;
 	height: 75px;
 	width: 300px;
-	border: 2.5px solid;
+	border: 2px solid;
 	border-radius: 5px;
 }
 
@@ -236,18 +244,17 @@ button {
 	height: 60px;
 	width: 180px;
 	display: block;
-	margin: 0 auto 200px;
+	margin: 0 auto;
 	outline: none;
 	transition: transform 0.1s ease-in-out;
 }
 
 button:hover {
 	background-color: var(--green-background);
-	border: 2.5px solid var(--green-color);
+	border: 2px solid var(--green-color);
 	border-radius: 5px;
 	color: var(--green-color);
-	transform: scale(1.05);
-	transform: translateY(5px);
+	transform: scale(1.02);
 }
 
 footer {
@@ -255,7 +262,7 @@ footer {
 	height: 100%;
 	min-height: 100px;
 	padding: 50px 0;
-	margin-top: 350px;
+	margin-top: 250px;
 }
 
 footer a,
@@ -276,6 +283,10 @@ footer span {
 		align-self: center;
 		margin: 50px auto;
 	}
+
+	.main-post {
+		padding: 0 20px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -286,7 +297,7 @@ footer span {
 
 	header nav li {
 		display: block;
-		padding-left: 0;
+		padding: 5px 0;
 		text-align: center;
 	}
 

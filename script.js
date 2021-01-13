@@ -22,6 +22,7 @@ function validateForm() {
 		}, 5000);
 
 		return false;
+
 	} else if (email.includes('@') === false) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
@@ -39,6 +40,7 @@ function validateForm() {
 		}, 5000);
 
 		return false;
+		
 	} else if (email.length < 10) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
@@ -58,7 +60,6 @@ function validateForm() {
 		return false;
 	} else {
 		arrEmails.push(document.querySelector('input').value);
-
 		const objEmails = {
 			data: arrEmails,
 		};
