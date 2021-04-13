@@ -510,6 +510,10 @@ footer nav {
 		color: #fff;
 	}
 
+	.overlay a:hover {
+		color: var(--green-color);
+	}
+
 	.overlay li {
 		margin-bottom: 5rem;
 	}
