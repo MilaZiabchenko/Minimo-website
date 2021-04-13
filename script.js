@@ -1,172 +1,133 @@
+// Menu animation
+const menuBtn = document.querySelector('.menu-btn');
+const overlay = document.querySelector('.overlay');
+const ul = document.querySelector('header > nav > ul');
+
+menuBtn.addEventListener('click', () => {
+	menuBtn.classList.toggle('open');
+	overlay.classList.toggle('open');
+	ul.classList.toggle('open');
+});
+
+// Email validation
 const arrEmails = [];
 
 const submit = document.querySelector('#submit');
 submit.addEventListener('click', validateForm);
 
 function validateForm() {
-	const email = document.forms['myForm']['email'].value;
+	const email = document.forms['contact']['email'].value;
 
-	if (email === '') {
-		setTimeout(() => {
-			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `<p>email is required!</p>`;
-			flashMessage.classList.add('flash', 'red');
-			document
-				.querySelector('.flash-message-container')
-				.insertAdjacentElement('beforeend', flashMessage);
-		}, 500);
-
-		setTimeout(() => {
-			const flash = document.querySelector('.flash');
-			flash.remove();
-		}, 5000);
-
-		return false;
-
-	} else if (email.includes('@') === false) {
+	function validateEmail(p, className) {
 		setTimeout(() => {
 			document.querySelector('input').value = '';
 			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `<p class="red">email must include '@'!</p>`;
-			flashMessage.classList.add('flash', 'red');
+			flashMessage.innerHTML = p;
+			flashMessage.classList.add('flash', className);
 			document
 				.querySelector('.flash-message-container')
 				.insertAdjacentElement('beforeend', flashMessage);
 		}, 500);
+	}
 
-		setTimeout(() => {
-			const flash = document.querySelector('.flash');
-			flash.remove();
-		}, 5000);
-
-		return false;
-		
-	} else if (email.length < 10) {
-		setTimeout(() => {
-			document.querySelector('input').value = '';
-			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `<p class="red">email must be at least 8 chars!</p>`;
-			flashMessage.classList.add('flash', 'red');
-			document
-				.querySelector('.flash-message-container')
-				.insertAdjacentElement('beforeend', flashMessage);
-		}, 500);
-
-		setTimeout(() => {
-			const flash = document.querySelector('.flash');
-			flash.remove();
-		}, 5000);
-
-		return false;
-	} else {
-		arrEmails.push(document.querySelector('input').value);
-		const objEmails = {
-			data: arrEmails,
-		};
-		JSON.stringify(objEmails);
-		const strEmails = JSON.stringify(objEmails);
-		JSON.parse(strEmails);
-
-		localStorage.setItem('emails', strEmails);
-
-		setTimeout(() => {
-			document.querySelector('input').value = '';
-			const flashMessage = document.createElement('div');
-			flashMessage.innerHTML = `<p class="green">your email is accepted :)</p>`;
-			flashMessage.classList.add('flash', 'green');
-			document
-				.querySelector('.flash-message-container')
-				.insertAdjacentElement('beforeend', flashMessage);
-		}, 500);
-
+	function removeFlashMessage() {
 		setTimeout(() => {
 			const flash = document.querySelector('.flash');
 			flash.remove();
 		}, 5000);
 	}
+
+	if (email === null || email === '') {
+		validateEmail(`<p>email address is required!</p>`, 'red');
+		removeFlashMessage();
+
+		return false;
+	} else if (email.includes('@') === false) {
+		validateEmail(`<p>email must include '@'!</p>`, 'red');
+		removeFlashMessage();
+
+		return false;
+	} else if (email.length < 10) {
+		validateEmail(`<p>email must be at least 8 chars!</p>`, 'red');
+		removeFlashMessage();
+
+		return false;
+	} else {
+		validateEmail(`<p>your email is accepted :)</p>`, 'green');
+		removeFlashMessage();
+
+		arrEmails.push(document.querySelector('input').value);
+
+		const objEmails = {
+			data: arrEmails,
+		};
+
+		localStorage.setItem('emails', JSON.stringify(objEmails));
+
+		return arrEmails;
+	}
 }
 
+// Creating more blogs
+class Blog {
+	constructor(imageTitle, topic, heading) {
+		this.imageTitle = imageTitle;
+		this.topic = topic;
+		this.heading = heading;
+		this.text = paragraph;
+	}
+
+	createArticle() {
+		const article = `
+		<article class="small-post">
+			<img class="image" src="img/${this.imageTitle}.jpg">
+			<h4><a href="#">${this.topic}</a></h4>
+			<h2>${this.heading}</h2>
+			<p>${this.text}</p>
+		</article>
+		`;
+
+		return article;
+	}
+}
+
+const paragraph = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...`;
+
+const blogs = [
+	new Blog('adorable kitten', 'photodiary', 'Boundless tenderness'),
+	new Blog('cup of coffee', 'lifestyle', 'Taste of morning'),
+	new Blog('glass chess', 'lifestyle', 'Mind games'),
+	new Blog('stylish sunglasses', 'lifestyle', 'Watery shades of black'),
+	new Blog('old woods', 'travel', 'My friend the forest'),
+	new Blog('old boots', 'photodiary', 'Half the world behind'),
+];
+
+// Loading more blogs
 const button = document.querySelector('button');
 button.addEventListener('click', () => {
-	let loadItems = document.createElement('section');
-	loadItems.innerHTML = `
-		<div class="grid row row4">
-			<article class="small-post">
-				<img class="image" src="img/image8.jpg" alt="image8">
-				<h4><a href="#">photodiary</a></h4>
-				<h2>Proident eu est ad labore.</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				</p>
-			</article>
-			<article class="small-post">
-				<img class="image" src="img/image9.jpg" alt="image9">
-				<h4><a href="#">lifestyle</a></h4>
-				<h2>Consequat duis.</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				</p>
-			</article>
-		</div>
-	`;
-	loadItems.classList.add('wrapper');
-	document
-		.querySelector('.row3')
-		.insertAdjacentElement('afterend', loadItems);
+	function addRow(prevBlog, nextBlog, nextRow, prevRow) {
+		const loadItems = document.createElement('section');
+		loadItems.innerHTML = `
+			<div class="grid row ${nextRow}">
+				${prevBlog.createArticle()}
+				${nextBlog.createArticle()}
+			</div>
+		`;
+		loadItems.classList.add('container');
+		document
+			.querySelector(prevRow)
+			.insertAdjacentElement('afterend', loadItems);
+
+		return loadItems;
+	}
+
+	addRow(blogs[0], blogs[1], 'row4', '.row3');
 
 	setTimeout(() => {
-		loadItems = document.createElement('section');
-		loadItems.innerHTML = `
-		<div class="grid row row5">
-			<article class="small-post">
-				<img class="image" src="img/image10.jpg" alt="image10">
-				<h4><a href="#">lifestyle</a></h4>
-				<h2>Proident eu est ad labore.</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				</p>
-			</article>
-			<article class="small-post">
-				<img class="image" src="img/image11.jpg" alt="image11">
-				<h4><a href="#">lifestyle</a></h4>
-				<h2>Consequat duis.</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				</p>
-			</article>
-		</div>
-	`;
-		loadItems.classList.add('wrapper');
-		document
-			.querySelector('.row4')
-			.insertAdjacentElement('afterend', loadItems);
+		addRow(blogs[2], blogs[3], 'row5', '.row4');
 	}, 1500);
 
 	setTimeout(() => {
-		loadItems = document.createElement('section');
-		loadItems.innerHTML = `
-		<div class="grid row row6">
-			<article class="small-post">
-				<img class="image" src="img/image12.jpg" alt="image12">
-				<h4><a href="#">travel</a></h4>
-				<h2>Proident eu est ad labore.</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				</p>
-			</article>
-			<article class="small-post">
-				<img class="image" src="img/image13.jpg" alt="image13">
-				<h4><a href="#">photodiary</a></h4>
-				<h2>Consequat duis.</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				</p>
-			</article>
-		</div>
-	`;
-		loadItems.classList.add('wrapper');
-		document
-			.querySelector('.row5')
-			.insertAdjacentElement('afterend', loadItems);
+		addRow(blogs[4], blogs[5], 'row6', '.row5');
 	}, 3000);
 });

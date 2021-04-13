@@ -1,8 +1,37 @@
 {
     "cSpell.ignoreWords": [
+        "ad",
+        "adipisicing",
+        "aliqua",
+        "amet",
+        "consectetur",
+        "const",
+        "do",
+        "dolor",
+        "dolore",
+        "eiusmod",
+        "elit",
+        "enim",
+        "et",
+        "exercitation",
+        "incididunt",
+        "ipsum",
+        "labore",
+        "laboris",
+        "lorem",
+        "magna",
         "minim",
         "minimø",
-        "photodiary"
+        "nostrud",
+        "paragraph",
+        "photodiary",
+        "quis",
+        "sed",
+        "sit",
+        "tempor",
+        "ullamco",
+        "ut",
+        "veniam"
     ],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5502
 }
