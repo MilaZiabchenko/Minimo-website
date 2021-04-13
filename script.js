@@ -1,12 +1,10 @@
 // Menu animation
 const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.overlay');
-const ul = document.querySelector('header > nav > ul');
 
 menuBtn.addEventListener('click', () => {
 	menuBtn.classList.toggle('open');
 	overlay.classList.toggle('open');
-	ul.classList.toggle('open');
 });
 
 // Email validation
@@ -62,13 +60,14 @@ function validateForm() {
 			data: arrEmails,
 		};
 
+		// Adding valid email values to local storage
 		localStorage.setItem('emails', JSON.stringify(objEmails));
 
 		return arrEmails;
 	}
 }
 
-// Creating more blogs
+// Creating class for adding some more blogs
 class Blog {
 	constructor(imageTitle, topic, heading) {
 		this.imageTitle = imageTitle;
@@ -93,6 +92,7 @@ class Blog {
 
 const paragraph = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...`;
 
+// Instantiating an object with an array of new blogs
 const blogs = [
 	new Blog('adorable kitten', 'photodiary', 'Boundless tenderness'),
 	new Blog('cup of coffee', 'lifestyle', 'Taste of morning'),
@@ -102,7 +102,7 @@ const blogs = [
 	new Blog('old boots', 'photodiary', 'Half the world behind'),
 ];
 
-// Loading more blogs
+// Loading newly created blogs
 const button = document.querySelector('button');
 button.addEventListener('click', () => {
 	function addRow(prevBlog, nextBlog, nextRow, prevRow) {
