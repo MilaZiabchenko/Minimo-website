@@ -16,9 +16,10 @@ submit.addEventListener('click', validateForm);
 function validateForm() {
 	const email = document.forms['contact']['email'].value;
 
-	function validateEmail(p, className) {
+	// Creating flash message
+	function createFlashMessage(p, className) {
 		setTimeout(() => {
-			document.querySelector('input').value = '';
+			document.querySelector('form > input').value = '';
 			const flashMessage = document.createElement('div');
 			flashMessage.innerHTML = p;
 			flashMessage.classList.add('flash', className);
@@ -28,6 +29,7 @@ function validateForm() {
 		}, 500);
 	}
 
+	// Removing flash message
 	function removeFlashMessage() {
 		setTimeout(() => {
 			const flash = document.querySelector('.flash');
@@ -36,31 +38,31 @@ function validateForm() {
 	}
 
 	if (email === null || email === '') {
-		validateEmail(`<p>email address is required!</p>`, 'red');
+		createFlashMessage(`<p>email address is required!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
 	} else if (email.includes('@') === false) {
-		validateEmail(`<p>email must include '@'!</p>`, 'red');
+		createFlashMessage(`<p>email must include '@'!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
 	} else if (email.length < 10) {
-		validateEmail(`<p>email must be at least 8 chars!</p>`, 'red');
+		createFlashMessage(`<p>email must be at least 8 chars!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
 	} else {
-		validateEmail(`<p>your email is accepted :)</p>`, 'green');
+		createFlashMessage(`<p>your email is accepted :)</p>`, 'green');
 		removeFlashMessage();
 
-		arrEmails.push(document.querySelector('input').value);
+		arrEmails.push(document.querySelector('form > input').value);
 
 		const objEmails = {
 			data: arrEmails,
 		};
 
-		// Adding valid email values to local storage
+		// Stringifying valid email values and adding them to local storage
 		localStorage.setItem('emails', JSON.stringify(objEmails));
 
 		return arrEmails;
@@ -92,7 +94,7 @@ class Blog {
 
 const paragraph = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...`;
 
-// Instantiating an object with an array of new blogs
+// Instantiating an array of new blog objects
 const blogs = [
 	new Blog('adorable kitten', 'photodiary', 'Boundless tenderness'),
 	new Blog('cup of coffee', 'lifestyle', 'Taste of morning'),
