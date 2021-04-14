@@ -15,11 +15,11 @@ submit.addEventListener('click', validateForm);
 
 function validateForm() {
 	const email = document.forms['contact']['email'].value;
+	document.querySelector('form > input').value = '';
 
 	// Creating flash message
 	function createFlashMessage(p, className) {
 		setTimeout(() => {
-			document.querySelector('form > input').value = '';
 			const flashMessage = document.createElement('div');
 			flashMessage.innerHTML = p;
 			flashMessage.classList.add('flash', className);
