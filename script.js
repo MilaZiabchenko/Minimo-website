@@ -11,9 +11,11 @@ menuBtn.addEventListener('click', () => {
 const arrEmails = [];
 
 const submit = document.querySelector('#submit');
-submit.addEventListener('click', validateForm);
+submit.addEventListener('click', validateEmail);
 
-function validateForm() {
+function validateEmail(e) {
+	e.preventDefault();
+
 	const email = document.forms['contact']['email'].value;
 	document.querySelector('form > input').value = '';
 
@@ -42,21 +44,24 @@ function validateForm() {
 		removeFlashMessage();
 
 		return false;
+
 	} else if (email.includes('@') === false) {
 		createFlashMessage(`<p>email must include '@'!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
-	} else if (email.length < 10) {
+
+	} else if (email.length < 8) {
 		createFlashMessage(`<p>email must be at least 8 chars!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
+		
 	} else {
 		createFlashMessage(`<p>your email is accepted :)</p>`, 'green');
 		removeFlashMessage();
 
-		arrEmails.push(document.querySelector('form > input').value);
+		arrEmails.push(email);
 
 		const objEmails = {
 			data: arrEmails,
