@@ -1,10 +1,17 @@
-// Menu animation
+// Menu and overlay animation
 const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.overlay');
 
 menuBtn.addEventListener('click', () => {
 	menuBtn.classList.toggle('open');
 	overlay.classList.toggle('open');
+});
+
+document.querySelectorAll('.overlay a').forEach(a => {
+	a.addEventListener('click', () => {
+		menuBtn.classList.toggle('open');
+		overlay.classList.toggle('open');
+	});
 });
 
 // Email validation
@@ -44,19 +51,16 @@ function validateEmail(e) {
 		removeFlashMessage();
 
 		return false;
-
 	} else if (email.includes('@') === false) {
 		createFlashMessage(`<p>email must include '@'!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
-
 	} else if (email.length < 8) {
 		createFlashMessage(`<p>email must be at least 8 chars!</p>`, 'red');
 		removeFlashMessage();
 
 		return false;
-		
 	} else {
 		createFlashMessage(`<p>your email is accepted :)</p>`, 'green');
 		removeFlashMessage();
