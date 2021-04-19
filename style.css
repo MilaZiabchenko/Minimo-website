@@ -355,7 +355,7 @@ button {
 }
 
 button:hover {
-	background: linear-gradient(to right, var(--green-color), #0fce58);
+	background-image: linear-gradient(to right, var(--green-color), #0fce58);
 	color: #fff;
 	border-color: var(--green-color);
 	outline-color: var(--green-color);
@@ -624,5 +624,46 @@ footer nav {
 	.image {
 		width: 420px;
 		height: 280px;
+	}
+}
+
+@media (max-width: 452px) {
+	.small-post {
+		width: 360px;
+	}
+
+	.small-post p {
+		max-width: 32ch;
+	}
+
+	.image {
+		width: 328px;
+		height: 218px;
+	}
+
+	.sign-up {
+		max-height: 520px;
+		padding: 0.175rem;
+	}
+
+	.sign-up h2 {
+		font-size: 2.75em;
+	}
+
+	.sign-up h3 {
+		font-size: 1.75em;
+	}
+
+	form,
+	.flash {
+		max-width: 340px;
+		max-height: 75px;
+		padding: 1em;
+
+	}
+
+	input[type='email'] {
+		border: none;
+		outline: none;
 	}
 }
