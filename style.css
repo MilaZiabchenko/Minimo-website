@@ -606,11 +606,11 @@ footer nav {
 
 	.main-post {
 		margin: 0;
-		padding: 1rem;
+		padding: 0 1rem;
 	}
 
-	.main-post h2 {
-		font-size: 2.12em;
+	.main-post h4 {
+		display: none;
 	}
 
 	.main-post p {
