@@ -20,13 +20,14 @@
 
 /* Basic colors */
 :root {
-	--primary-color: #525252;
-	--secondary-color: rgb(182, 172, 162);
-	--green-color: hsl(120, 82%, 42%);
-	--green-background: #e2f4de;
-	--red-color: #ff0000;
-	--red-background: rgb(255, 228, 222);
-	--light-background: rgb(245, 245, 245);
+	--primary-color: hsl(0, 0%, 32%);
+	--secondary-color: hsl(30, 12%, 67%);
+	--primary-green-color: hsl(120, 82%, 42%);
+	--secondary-green-color: hsl(142, 82%, 42%);
+	--green-background: hsl(109, 50%, 91%);
+	--red-color: hsl(0, 100%, 50%);
+	--red-background: hsl(12, 100%, 94%);
+	--light-background: hsl(0, 0%, 96%);
 }
 
 /* Global styles */
@@ -37,7 +38,7 @@
 }
 
 *::selection {
-	background-color: var(--green-color);
+	background-color: var(--primary-green-color);
 	color: #fff;
 }
 
@@ -51,7 +52,7 @@ h1 {
 }
 
 h1:hover {
-	color: var(--green-color);
+	color: var(--primary-green-color);
 	letter-spacing: 0.5em;
 }
 
@@ -78,7 +79,7 @@ a {
 }
 
 a:hover {
-	color: var(--green-color);
+	color: var(--primary-green-color);
 }
 
 header a {
@@ -122,7 +123,7 @@ input,
 }
 
 .green p {
-	color: var(--green-color);
+	color: var(--primary-green-color);
 }
 
 .red p {
@@ -232,7 +233,7 @@ header nav li {
 
 .small-post {
 	background: #fff;
-	box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
 	width: 572px;
 	padding: 1rem 1rem 2rem;
 	margin: 0 auto;
@@ -242,7 +243,7 @@ header nav li {
 .image {
 	outline: 3px solid var(--secondary-color);
 	outline-offset: 6px;
-	box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
 	width: 540px;
 	height: 360px;
 	margin-bottom: 1rem;
@@ -283,8 +284,8 @@ form {
 
 input[type='email'] {
 	background-color: var(--primary-color);
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	outline: 1px solid rgba(255, 255, 255, 0.5);
+	border: 1px solid hsla(0, 0%, 100%, 0.5);
+	outline: 1px solid hsla(0, 0%, 100%, 0.5);
 	display: block;
 	max-width: 345px;
 	width: 100%;
@@ -333,7 +334,7 @@ input[type='email']:focus::placeholder {
 
 .green {
 	background-color: var(--green-background);
-	outline-color: var(--green-color);
+	outline-color: var(--primary-green-color);
 }
 
 .red {
@@ -346,7 +347,7 @@ button {
 	border: 3px solid var(--secondary-color);
 	outline: 3px solid var(--secondary-color);
 	outline-offset: 6px;
-	box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
 	display: block;
 	width: 300px;
 	height: 60px;
@@ -355,16 +356,20 @@ button {
 }
 
 button:hover {
-	background-image: linear-gradient(to right, var(--green-color), #0fce58);
+	background-image: linear-gradient(
+		to right,
+		var(--primary-green-color),
+		var(--secondary-green-color)
+	);
 	color: #fff;
-	border-color: var(--green-color);
-	outline-color: var(--green-color);
+	border-color: var(--primary-green-color);
+	outline-color: var(--primary-green-color);
 	box-shadow: none;
 }
 
 /* Footer */
 footer {
-	background-color: rgba(182, 172, 162, 0.25);
+	background-color: hsla(30, 12%, 67%, 0.25);
 	height: 100%;
 	min-height: 100px;
 	padding: 3rem 0;
@@ -515,7 +520,7 @@ footer nav {
 	}
 
 	.overlay a:hover {
-		color: var(--green-color);
+		color: var(--primary-green-color);
 	}
 
 	.overlay li {
