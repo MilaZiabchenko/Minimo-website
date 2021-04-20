@@ -308,7 +308,7 @@ input[type='email']:focus::placeholder {
 
 #submit {
 	filter: invert(1);
-	width: 30px;
+	width: 2rem;
 	height: auto;
 	cursor: pointer;
 	transition: transform 250ms ease;
@@ -378,7 +378,7 @@ footer > .flex {
 
 .social img {
 	filter: invert(0.25);
-	width: 1.75em;
+	width: 1.75rem;
 	height: auto;
 }
 
@@ -436,7 +436,7 @@ footer nav {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
 	/* Header */
 	header {
 		padding: 1rem;
@@ -557,7 +557,6 @@ footer nav {
 		text-align: left;
 		padding: 0;
 		margin: 0 1rem;
-		overflow: hidden;
 	}
 
 	.main-post h2 {
@@ -632,13 +631,13 @@ footer nav {
 		width: 360px;
 	}
 
-	.small-post p {
-		max-width: 32ch;
-	}
-
 	.image {
 		width: 328px;
 		height: 218px;
+	}
+
+	.small-post p {
+		max-width: 32ch;
 	}
 
 	.sign-up {
@@ -659,11 +658,34 @@ footer nav {
 		max-width: 340px;
 		max-height: 75px;
 		padding: 1em;
-
 	}
 
 	input[type='email'] {
 		border: none;
 		outline: none;
+	}
+}
+
+@media (max-width: 320px) {
+	.small-post {
+		width: 300px;
+	}
+
+	.image {
+		width: 268px;
+		height: 178px;
+	}
+
+	.small-post p {
+		font-size: 0.9em;
+	}
+
+	form,
+	.flash {
+		max-width: 300px;
+	}
+
+	button {
+		width: 250px;
 	}
 }

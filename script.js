@@ -80,8 +80,9 @@ function validateEmail(e) {
 
 // Creating class for adding some more blogs
 class Blog {
-	constructor(imageTitle, topic, heading) {
+	constructor(imageTitle, imageAltText, topic, heading) {
 		this.imageTitle = imageTitle;
+		this.imageAltText = imageAltText;
 		this.topic = topic;
 		this.heading = heading;
 		this.text = paragraph;
@@ -90,7 +91,7 @@ class Blog {
 	createArticle() {
 		const article = `
 		<article class="small-post">
-			<img class="image" src="img/${this.imageTitle}.jpg">
+			<img class="image" src="/img/${this.imageTitle}.jpg" alt="${this.imageAltText}">
 			<h4><a href="#">${this.topic}</a></h4>
 			<h2>${this.heading}</h2>
 			<p>${this.text}</p>
@@ -105,12 +106,42 @@ const paragraph = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
 
 // Instantiating an array of new blog objects
 const blogs = [
-	new Blog('adorable kitten', 'photodiary', 'Boundless tenderness'),
-	new Blog('cup of coffee', 'lifestyle', 'Taste of morning'),
-	new Blog('glass chess', 'lifestyle', 'Mind games'),
-	new Blog('stylish sunglasses', 'lifestyle', 'Watery shades of black'),
-	new Blog('old woods', 'travel', 'My friend the forest'),
-	new Blog('old boots', 'photodiary', 'Half the world behind'),
+	new Blog(
+		'adorable kitten',
+		'An adorable kitten',
+		'photodiary',
+		'Boundless tenderness',
+	),
+	new Blog(
+		'cup of coffee',
+		'A cup of coffee',
+		'lifestyle',
+		'Taste of morning',
+	),
+	new Blog(
+		'glass chess',
+		'Glass chess pieces on the chess board',
+		'lifestyle',
+		'Mind games',
+	),
+	new Blog(
+		'stylish sunglasses',
+		'Stylish sunglasses',
+		'lifestyle',
+		'Watery shades of black',
+	),
+	new Blog(
+		'old woods',
+		'Big trees in the forest',
+		'travel',
+		'My friend the forest',
+	),
+	new Blog(
+		'old boots',
+		'Stylish boots',
+		'photodiary',
+		'Half the world behind',
+	),
 ];
 
 // Loading newly created blogs
