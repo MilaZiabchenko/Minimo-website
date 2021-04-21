@@ -1,22 +1,9 @@
 /* Fonts */
-@font-face {
-	font-family: 'Inconsolata';
-	src: local('Inconsolata Regular'), local('Inconsolata-Regular'),
-		url(fonts/inconsolata-v16-latin-regular.woff2) format('woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
-@font-face {
-	font-family: 'Playfair Display';
-	src: local('Playfair Display Regular'), local('PlayfairDisplay-Regular'),
-		url(fonts/playfair-display-v13-latin-regular.woff2) format('woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-@font-face {
-	font-family: 'Ubuntu';
-	font-weight: 300;
-	src: local('Ubuntu Light'), local('Ubuntu-Light'),
-		url(fonts/ubuntu-v11-latin-300.woff2) format('woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 /* Basic colors */
 :root {
@@ -28,6 +15,9 @@
 	--red-color: hsl(0, 100%, 50%);
 	--red-background: hsl(12, 100%, 94%);
 	--light-background: hsl(0, 0%, 96%);
+	--box-shadow-color: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
+	--green-filter: invert(33%) sepia(55%) saturate(550%) hue-rotate(65deg)
+		brightness(150%) contrast(100%) opacity(100%);
 }
 
 /* Global styles */
@@ -86,6 +76,15 @@ header a {
 	color: var(--primary-color);
 }
 
+header nav li {
+	padding-left: 5rem;
+}
+
+h2,
+h4 {
+	margin: 1rem 0;
+}
+
 h2 {
 	font-size: 2.2em;
 }
@@ -93,6 +92,12 @@ h2 {
 .main-post h2,
 .sign-up h2 {
 	font-size: 3.2em;
+}
+
+.main-post p {
+	line-height: 1.7;
+	max-width: 70ch;
+	margin: 1.2rem auto;
 }
 
 .sign-up h3 {
@@ -146,17 +151,17 @@ footer p {
 }
 
 /* Layout */
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .container {
 	max-width: 1240px;
 	margin: 0 auto;
 	width: 100%;
 	height: 100%;
-}
-
-.flex {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 }
 
 .grid {
@@ -166,17 +171,15 @@ footer p {
 	gap: 6rem;
 }
 
-h2,
-h4 {
-	margin: 1rem 0;
-}
-
 li {
 	display: inline-block;
 }
 
 img {
 	object-fit: cover;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 /* Header */
@@ -186,10 +189,6 @@ header {
 	padding: 1.2rem 5rem;
 }
 
-header nav li {
-	padding-left: 5rem;
-}
-
 /* Main blog */
 .main-blog {
 	background: var(--light-background);
@@ -197,13 +196,6 @@ header nav li {
 
 .main-image-container {
 	overflow: hidden;
-}
-
-.main-image,
-.image {
-	display: block;
-	width: 100%;
-	height: 100%;
 }
 
 .main-image {
@@ -220,20 +212,13 @@ header nav li {
 	text-align: center;
 }
 
-.main-post p {
-	line-height: 1.7;
-	max-width: 70ch;
-	margin: 1.2rem auto;
-}
-
 /* Blogs */
 .row {
 	margin: 7.5rem 0;
 }
 
 .small-post {
-	background: #fff;
-	box-shadow: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
+	box-shadow: var(--box-shadow-color);
 	width: 572px;
 	padding: 1rem 1rem 2rem;
 	margin: 0 auto;
@@ -243,7 +228,7 @@ header nav li {
 .image {
 	outline: 3px solid var(--secondary-color);
 	outline-offset: 6px;
-	box-shadow: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
+	box-shadow: var(--box-shadow-color);
 	width: 540px;
 	height: 360px;
 	margin-bottom: 1rem;
@@ -258,7 +243,6 @@ header nav li {
 	background: url('../img/london.jpg') no-repeat top center/cover;
 	opacity: 0.95;
 	width: 100%;
-	height: 100%;
 	height: 580px;
 	padding: 3rem;
 	margin: 5rem 0;
@@ -271,13 +255,19 @@ header nav li {
 	line-height: 1;
 }
 
+form,
+.flash {
+	outline: 3px solid;
+	outline-offset: -3px;
+	display: block;
+	width: 420px;
+	height: 84px;
+}
+
 form {
 	background-color: var(--primary-color);
 	opacity: 0.82;
-	outline: 3px solid #fff;
-	outline-offset: -3px;
-	width: 420px;
-	height: 84px;
+	outline-color: #fff;
 	padding: 1rem;
 	margin: 3rem auto 1rem;
 }
@@ -291,7 +281,6 @@ input[type='email'] {
 	width: 100%;
 	height: 50px;
 	padding-bottom: 5px;
-	text-align: center;
 }
 
 input[type='email']:focus {
@@ -310,26 +299,19 @@ input[type='email']:focus::placeholder {
 #submit {
 	filter: invert(1);
 	width: 2rem;
-	height: auto;
+	height: 2rem;
 	cursor: pointer;
 	transition: transform 250ms ease;
 }
 
 #submit:hover {
-	filter: invert(33%) sepia(55%) saturate(550%) hue-rotate(65deg)
-		brightness(150%) contrast(100%) opacity(100%);
+	filter: var(--green-filter);
 	transform: translateX(10px);
 }
 
 .flash {
-	outline: 3px solid;
-	outline-offset: -3px;
-	display: block;
-	width: 420px;
-	height: 84px;
 	padding: 1.2em;
 	margin: 1rem auto;
-	text-align: center;
 }
 
 .green {
@@ -347,7 +329,7 @@ button {
 	border: 3px solid var(--secondary-color);
 	outline: 3px solid var(--secondary-color);
 	outline-offset: 6px;
-	box-shadow: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
+	box-shadow: var(--box-shadow-color);
 	display: block;
 	width: 300px;
 	height: 60px;
@@ -384,12 +366,11 @@ footer > .flex {
 .social img {
 	filter: invert(0.25);
 	width: 1.75rem;
-	height: auto;
+	height: 1.75rem;
 }
 
 .social img:hover {
-	filter: invert(33%) sepia(55%) saturate(550%) hue-rotate(65deg)
-		brightness(150%) contrast(100%) opacity(100%);
+	filter: var(--green-filter);
 }
 
 footer a {
@@ -407,6 +388,10 @@ footer nav {
 
 	header nav li {
 		padding-left: 2.5rem;
+	}
+
+	.main-post h2 {
+		font-size: 3em;
 	}
 
 	.main-post span:nth-child(2) {
@@ -441,7 +426,7 @@ footer nav {
 	}
 }
 
-@media (max-width: 780px) {
+@media (max-width: 820px) {
 	/* Header */
 	header {
 		padding: 1rem;
@@ -647,7 +632,7 @@ footer nav {
 
 	.sign-up {
 		max-height: 520px;
-		padding: 0.175rem;
+		padding: 0.75rem;
 	}
 
 	.sign-up h2 {
@@ -672,6 +657,10 @@ footer nav {
 }
 
 @media (max-width: 360px) {
+	.main-post p {
+		display: none;
+	}
+
 	.small-post {
 		width: 300px;
 	}
