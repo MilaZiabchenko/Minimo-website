@@ -1,28 +1,28 @@
 // Menu and overlay animation
 const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.overlay');
+const links = document.querySelectorAll('.overlay a');
 
 menuBtn.addEventListener('click', () => {
 	menuBtn.classList.toggle('open');
 	overlay.classList.toggle('open');
 });
 
-document.querySelectorAll('.overlay a').forEach(a => {
-	a.addEventListener('click', () => {
+links.forEach(link => {
+	link.addEventListener('click', () => {
 		menuBtn.classList.toggle('open');
 		overlay.classList.toggle('open');
 	});
 });
 
 // Email validation
-const arrEmails = [];
-
 const submit = document.querySelector('#submit');
 submit.addEventListener('click', validateEmail);
 
 function validateEmail(e) {
 	e.preventDefault();
 
+	const arrEmails = [];
 	const email = document.forms['contact']['email'].value;
 	document.querySelector('form > input').value = '';
 
@@ -47,22 +47,22 @@ function validateEmail(e) {
 	}
 
 	if (email === null || email === '') {
-		createFlashMessage(`<p>email address is required!</p>`, 'red');
+		createFlashMessage(`<p>email address is required!</p>`, 'invalid');
 		removeFlashMessage();
 
 		return false;
 	} else if (email.includes('@') === false) {
-		createFlashMessage(`<p>email must include '@'!</p>`, 'red');
+		createFlashMessage(`<p>email must include '@'!</p>`, 'invalid');
 		removeFlashMessage();
 
 		return false;
 	} else if (email.length < 8) {
-		createFlashMessage(`<p>email must be at least 8 chars!</p>`, 'red');
+		createFlashMessage(`<p>email must be at least 8 chars!</p>`, 'invalid');
 		removeFlashMessage();
 
 		return false;
 	} else {
-		createFlashMessage(`<p>your email is accepted :)</p>`, 'green');
+		createFlashMessage(`<p>your email is accepted :)</p>`, 'valid');
 		removeFlashMessage();
 
 		arrEmails.push(email);
@@ -110,43 +110,43 @@ const blogs = [
 		'adorable kitten',
 		'An adorable kitten',
 		'photodiary',
-		'Boundless tenderness',
+		'Boundless tenderness'
 	),
 	new Blog(
 		'cup of coffee',
 		'A cup of coffee',
 		'lifestyle',
-		'Taste of morning',
+		'Taste of morning'
 	),
 	new Blog(
 		'glass chess',
 		'Glass chess pieces on the chess board',
 		'lifestyle',
-		'Mind games',
+		'Mind games'
 	),
 	new Blog(
 		'stylish sunglasses',
 		'Stylish sunglasses',
 		'lifestyle',
-		'Watery shades of black',
+		'Watery shades of black'
 	),
 	new Blog(
 		'old woods',
 		'Big trees in the forest',
 		'travel',
-		'My friend the forest',
+		'My friend the forest'
 	),
 	new Blog(
 		'old boots',
 		'Stylish boots',
 		'photodiary',
-		'Half the world behind',
+		'Half the world behind'
 	),
 ];
 
 // Loading newly created blogs
-const button = document.querySelector('button');
-button.addEventListener('click', () => {
+const btnLoadMore = document.querySelector('#loadmore');
+btnLoadMore.addEventListener('click', () => {
 	function addRow(prevBlog, nextBlog, nextRow, prevRow) {
 		const loadItems = document.createElement('section');
 		loadItems.innerHTML = `

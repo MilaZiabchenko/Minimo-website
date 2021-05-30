@@ -21,7 +21,9 @@
 }
 
 /* Global styles */
-* {
+*,
+*::before,
+*::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -127,11 +129,11 @@ input,
 	font-size: 1.5em;
 }
 
-.green p {
+.valid p {
 	color: var(--primary-green-color);
 }
 
-.red p {
+.invalid p {
 	color: var(--red-color);
 }
 
@@ -319,12 +321,12 @@ input[type='image']:focus {
 	padding: 1.2em;
 }
 
-.green {
+.valid {
 	outline-color: var(--primary-green-color);
 	background-color: var(--green-background);
 }
 
-.red {
+.invalid {
 	outline-color: var(--red-color);
 	background-color: var(--red-background);
 }
