@@ -1,9 +1,25 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(fonts/inconsolata-v16-latin-regular.woff2) format('woff2');
+  }
+  
+  @font-face {
+	font-family: 'Playfair Display';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Playfair Display Regular'), local('PlayfairDisplay-Regular'), url(fonts/playfair-display-v13-latin-regular.woff2) format('woff2');
+  }
+  
+  @font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Ubuntu Light'), local('Ubuntu-Light'), url(fonts/ubuntu-v11-latin-300.woff2) format('woff2');
+  }
 
 /* Basic colors */
 :root {
