@@ -68,7 +68,7 @@ function validateEmail(e) {
 		arrEmails.push(email);
 
 		const objEmails = {
-			data: arrEmails,
+			data: arrEmails
 		};
 
 		// Stringifying valid email values and adding them to local storage
@@ -112,12 +112,7 @@ const blogs = [
 		'photodiary',
 		'Boundless tenderness'
 	),
-	new Blog(
-		'cup of coffee',
-		'A cup of coffee',
-		'lifestyle',
-		'Taste of morning'
-	),
+	new Blog('cup of coffee', 'A cup of coffee', 'lifestyle', 'Taste of morning'),
 	new Blog(
 		'glass chess',
 		'Glass chess pieces on the chess board',
@@ -136,12 +131,7 @@ const blogs = [
 		'travel',
 		'My friend the forest'
 	),
-	new Blog(
-		'old boots',
-		'Stylish boots',
-		'photodiary',
-		'Half the world behind'
-	),
+	new Blog('old boots', 'Stylish boots', 'photodiary', 'Half the world behind')
 ];
 
 // Loading newly created blogs
