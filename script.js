@@ -86,13 +86,13 @@ class Blog {
 
   createArticle() {
     const article = `
-		<article class="small-post">
-			<img class="image" src="/img/${this.imageTitle}.jpg" alt="${this.imageAltText}">
-			<h4><a href="https://animated-mini-photo-gallery.netlify.app/" target="_blank">${this.topic}</a></h4>
-			<h2>${this.heading}</h2>
-			<p>${this.text}</p>
-		</article>
-		`;
+    <article class="small-post">
+      <img class="image" src="/img/${this.imageTitle}.jpg" alt="${this.imageAltText}">
+      <h4><a href="https://animated-mini-photo-gallery.netlify.app/" target="_blank">${this.topic}</a></h4>
+      <h2>${this.heading}</h2>
+      <p>${this.text}</p>
+    </article>
+    `;
 
     return article;
   }
