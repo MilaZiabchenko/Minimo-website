@@ -1,7 +1,8 @@
-// Menu and overlay animation
 const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.overlay');
 const links = document.querySelectorAll('.overlay a');
+const submit = document.querySelector('#submit');
+const btnLoadMore = document.querySelector('#loadmore');
 
 menuBtn.addEventListener('click', () => {
   menuBtn.classList.toggle('open');
@@ -15,36 +16,31 @@ links.forEach(link => {
   });
 });
 
-// Email validation
-const submit = document.querySelector('#submit');
-submit.addEventListener('click', validateEmail);
+const createFlashMessage = (p, className) => {
+  setTimeout(() => {
+    const flashMessage = document.createElement('div');
+    flashMessage.innerHTML = p;
+    flashMessage.classList.add('flash', className);
+    document
+      .querySelector('.flash-message-container')
+      .insertAdjacentElement('beforeend', flashMessage);
+  }, 500);
+};
 
-function validateEmail(e) {
+const removeFlashMessage = () => {
+  setTimeout(() => {
+    const flash = document.querySelector('.flash');
+    flash.remove();
+  }, 5000);
+};
+
+const arrEmails = [];
+
+const validateEmail = e => {
   e.preventDefault();
 
-  const arrEmails = [];
   const email = document.forms['contact']['email'].value;
   document.querySelector('form > input').value = '';
-
-  // Creating flash message
-  function createFlashMessage(p, className) {
-    setTimeout(() => {
-      const flashMessage = document.createElement('div');
-      flashMessage.innerHTML = p;
-      flashMessage.classList.add('flash', className);
-      document
-        .querySelector('.flash-message-container')
-        .insertAdjacentElement('beforeend', flashMessage);
-    }, 500);
-  }
-
-  // Removing flash message
-  function removeFlashMessage() {
-    setTimeout(() => {
-      const flash = document.querySelector('.flash');
-      flash.remove();
-    }, 5000);
-  }
 
   if (email === null || email === '') {
     createFlashMessage(`<p>email address is required!</p>`, 'invalid');
@@ -71,14 +67,14 @@ function validateEmail(e) {
       data: arrEmails,
     };
 
-    // Stringifying valid email values and adding them to local storage
     localStorage.setItem('emails', JSON.stringify(objEmails));
 
     return arrEmails;
   }
-}
+};
 
-// Creating class for adding some more blogs
+submit.addEventListener('click', validateEmail);
+
 class Blog {
   constructor(imageTitle, imageAltText, topic, heading) {
     this.imageTitle = imageTitle;
@@ -104,7 +100,6 @@ class Blog {
 
 const paragraph = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...`;
 
-// Instantiating an array of new blog objects
 const blogs = [
   new Blog(
     'adorable kitten',
@@ -134,25 +129,22 @@ const blogs = [
   new Blog('old boots', 'Stylish boots', 'photodiary', 'Half the world behind'),
 ];
 
-// Loading newly created blogs
-const btnLoadMore = document.querySelector('#loadmore');
+const addRow = (prevBlog, nextBlog, nextRow, prevRow) => {
+  const loadItems = document.createElement('section');
+  loadItems.innerHTML = `
+    <div class="grid row ${nextRow}">
+      ${prevBlog.createArticle()}
+      ${nextBlog.createArticle()}
+    </div>
+  `;
+
+  loadItems.classList.add('container');
+  document.querySelector(prevRow).insertAdjacentElement('afterend', loadItems);
+
+  return loadItems;
+};
+
 btnLoadMore.addEventListener('click', () => {
-  function addRow(prevBlog, nextBlog, nextRow, prevRow) {
-    const loadItems = document.createElement('section');
-    loadItems.innerHTML = `
-			<div class="grid row ${nextRow}">
-				${prevBlog.createArticle()}
-				${nextBlog.createArticle()}
-			</div>
-		`;
-    loadItems.classList.add('container');
-    document
-      .querySelector(prevRow)
-      .insertAdjacentElement('afterend', loadItems);
-
-    return loadItems;
-  }
-
   addRow(blogs[0], blogs[1], 'row4', '.row3');
 
   setTimeout(() => {
