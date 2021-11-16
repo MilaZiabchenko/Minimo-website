@@ -221,16 +221,22 @@
           sign up for more inspiring photos, stories, and special offers from
           minim&oslash;
         </h3>
-        <form class="flex" autocomplete="off" name="contact" method="POST">
+        <form
+          id="form-control"
+          class="flex"
+          autocomplete="off"
+          novalidate
+          name="contact"
+          method="POST"
+        >
           <input type="email" name="email" placeholder="enter your email" />
 
           <input
             type="image"
             src="/img/double_arrow.svg"
             alt="Submit"
-            title="Submit"
             name="submit"
-            id="submit"
+            title="Submit"
           />
         </form>
         <div class="flash-message-container"></div>

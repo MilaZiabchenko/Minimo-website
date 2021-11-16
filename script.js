@@ -1,7 +1,7 @@
 const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.overlay');
 const links = document.querySelectorAll('.overlay a');
-const submit = document.querySelector('#submit');
+const form = document.querySelector('#form-control');
 const btnLoadMore = document.querySelector('#loadmore');
 
 menuBtn.addEventListener('click', () => {
@@ -42,34 +42,40 @@ const validateEmail = e => {
   const email = document.forms['contact']['email'].value;
   document.querySelector('form > input').value = '';
 
-  if (email === null || email === '') {
+  if (email.trim().length === 0) {
     createFlashMessage(`<p>email address is required!</p>`, 'invalid');
     removeFlashMessage();
 
-    return false;
-  } else if (email.includes('@') === false) {
-    createFlashMessage(`<p>email must include '@'!</p>`, 'invalid');
+    return;
+  }
+
+  if (email && !email.includes('@')) {
+    createFlashMessage(`<p>email must include an '@'!</p>`, 'invalid');
     removeFlashMessage();
 
-    return false;
-  } else if (email.length < 8) {
+    return;
+  }
+
+  if (email.length < 8) {
     createFlashMessage(`<p>email must be at least 8 chars!</p>`, 'invalid');
     removeFlashMessage();
 
-    return false;
-  } else {
-    createFlashMessage(`<p>your email is accepted :)</p>`, 'valid');
-    removeFlashMessage();
-
-    arrEmails.push(email);
-    localStorage.setItem('emails', JSON.stringify(arrEmails));
-    const existingEmails = JSON.parse(localStorage.getItem('emails'));
-
-    return existingEmails || arrEmails;
+    return;
   }
+
+  createFlashMessage(`<p>your email is accepted :)</p>`, 'valid');
+  removeFlashMessage();
+
+  arrEmails.push(email);
+
+  localStorage.setItem('emails', JSON.stringify(arrEmails));
+
+  const existingEmails = JSON.parse(localStorage.getItem('emails'));
+
+  return existingEmails || arrEmails;
 };
 
-submit.addEventListener('click', validateEmail);
+form.addEventListener('submit', validateEmail);
 
 class BlogContent {
   constructor(blogImageTitle, blogImageAltText, blogTopic, blogHeading) {
