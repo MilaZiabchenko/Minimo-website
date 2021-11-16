@@ -62,34 +62,30 @@ const validateEmail = e => {
     removeFlashMessage();
 
     arrEmails.push(email);
+    localStorage.setItem('emails', JSON.stringify(arrEmails));
+    const existingEmails = JSON.parse(localStorage.getItem('emails'));
 
-    const objEmails = {
-      data: arrEmails,
-    };
-
-    localStorage.setItem('emails', JSON.stringify(objEmails));
-
-    return arrEmails;
+    return existingEmails || arrEmails;
   }
 };
 
 submit.addEventListener('click', validateEmail);
 
-class Blog {
-  constructor(imageTitle, imageAltText, topic, heading) {
-    this.imageTitle = imageTitle;
-    this.imageAltText = imageAltText;
-    this.topic = topic;
-    this.heading = heading;
-    this.text = paragraph;
+class BlogContent {
+  constructor(blogImageTitle, blogImageAltText, blogTopic, blogHeading) {
+    this.blogImageTitle = blogImageTitle;
+    this.blogImageAltText = blogImageAltText;
+    this.blogTopic = blogTopic;
+    this.blogHeading = blogHeading;
+    this.text = blogText;
   }
 
-  createArticle() {
+  createBlogArticle() {
     const article = `
     <article class="small-post">
-      <img class="image" src="/img/${this.imageTitle}.jpg" alt="${this.imageAltText}">
-      <h4><a href="https://animated-mini-photo-gallery.netlify.app/" target="_blank">${this.topic}</a></h4>
-      <h2>${this.heading}</h2>
+      <img class="image" src="/img/${this.blogImageTitle}.jpg" alt="${this.blogImageAltText}">
+      <h4><a href="https://animated-mini-photo-gallery.netlify.app/" target="_blank">${this.blogTopic}</a></h4>
+      <h2>${this.blogHeading}</h2>
       <p>${this.text}</p>
     </article>
     `;
@@ -98,43 +94,53 @@ class Blog {
   }
 }
 
-const paragraph = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...`;
+const blogText = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...`;
 
-const blogs = [
-  new Blog(
+const newBlogs = [
+  new BlogContent(
     'adorable kitten',
     'An adorable kitten',
     'photodiary',
     'Boundless tenderness'
   ),
-  new Blog('cup of coffee', 'A cup of coffee', 'lifestyle', 'Taste of morning'),
-  new Blog(
+  new BlogContent(
+    'cup of coffee',
+    'A cup of coffee',
+    'lifestyle',
+    'Taste of morning'
+  ),
+  new BlogContent(
     'glass chess',
     'Glass chess pieces on the chess board',
     'lifestyle',
     'Mind games'
   ),
-  new Blog(
+  new BlogContent(
     'stylish sunglasses',
     'Stylish sunglasses',
     'lifestyle',
     'Watery shades of black'
   ),
-  new Blog(
+  new BlogContent(
     'old woods',
     'Big trees in the forest',
     'travel',
     'My friend the forest'
   ),
-  new Blog('old boots', 'Stylish boots', 'photodiary', 'Half the world behind'),
+  new BlogContent(
+    'old boots',
+    'Stylish boots',
+    'photodiary',
+    'Half the world behind'
+  ),
 ];
 
-const addRow = (prevBlog, nextBlog, nextRow, prevRow) => {
+const addRowWithNewBlogs = (prevBlog, nextBlog, nextRow, prevRow) => {
   const loadItems = document.createElement('section');
   loadItems.innerHTML = `
     <div class="grid row ${nextRow}">
-      ${prevBlog.createArticle()}
-      ${nextBlog.createArticle()}
+      ${prevBlog.createBlogArticle()}
+      ${nextBlog.createBlogArticle()}
     </div>
   `;
 
@@ -145,13 +151,15 @@ const addRow = (prevBlog, nextBlog, nextRow, prevRow) => {
 };
 
 btnLoadMore.addEventListener('click', () => {
-  addRow(blogs[0], blogs[1], 'row4', '.row3');
+  addRowWithNewBlogs(newBlogs[0], newBlogs[1], 'row4', '.row3');
 
   setTimeout(() => {
-    addRow(blogs[2], blogs[3], 'row5', '.row4');
+    addRowWithNewBlogs(newBlogs[2], newBlogs[3], 'row5', '.row4');
   }, 1500);
 
   setTimeout(() => {
-    addRow(blogs[4], blogs[5], 'row6', '.row5');
+    addRowWithNewBlogs(newBlogs[4], newBlogs[5], 'row6', '.row5');
   }, 3000);
+
+  btnLoadMore.style.display = 'none';
 });
