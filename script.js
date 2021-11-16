@@ -1,25 +1,23 @@
 const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.overlay');
 const links = document.querySelectorAll('.overlay a');
-const form = document.querySelector('#form-control');
+const form = document.querySelector('#form');
 const btnLoadMore = document.querySelector('#loadmore');
 
-menuBtn.addEventListener('click', () => {
+const toggleOpen = () => {
   menuBtn.classList.toggle('open');
   overlay.classList.toggle('open');
-});
+};
 
+menuBtn.addEventListener('click', toggleOpen);
 links.forEach(link => {
-  link.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    overlay.classList.toggle('open');
-  });
+  link.addEventListener('click', toggleOpen);
 });
 
-const createFlashMessage = (p, className) => {
+const createFlashMessage = (messageText, className) => {
   setTimeout(() => {
     const flashMessage = document.createElement('div');
-    flashMessage.innerHTML = p;
+    flashMessage.innerHTML = messageText;
     flashMessage.classList.add('flash', className);
     document
       .querySelector('.flash-message-container')
@@ -49,8 +47,15 @@ const validateEmail = e => {
     return;
   }
 
-  if (email && !email.includes('@')) {
+  if (!email.includes('@')) {
     createFlashMessage(`<p>email must include an '@'!</p>`, 'invalid');
+    removeFlashMessage();
+
+    return;
+  }
+
+  if (email.endsWith('@') || email.endsWith('.') || !email.includes('.')) {
+    createFlashMessage(`<p>email '${email}' is incomplete!</p>`, 'invalid');
     removeFlashMessage();
 
     return;
