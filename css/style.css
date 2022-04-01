@@ -390,9 +390,9 @@ footer > .flex {
 }
 
 .social img {
-  width: 1.75rem;
-  height: 1.75rem;
-  filter: invert(0.25);
+  width: 1.95rem;
+  height: 1.95rem;
+  filter: invert(0.55);
 }
 
 .social img:hover {

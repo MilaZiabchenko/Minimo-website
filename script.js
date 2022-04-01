@@ -172,5 +172,5 @@ btnLoadMore.addEventListener('click', () => {
     addRowWithNewBlogs(newBlogs[4], newBlogs[5], 'row6', '.row5');
   }, 3000);
 
-  btnLoadMore.style.display = 'none';
+  btnLoadMore.remove();
 });
