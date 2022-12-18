@@ -1,132 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>my_minimø</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Inconsolata|Playfair+Display|Ubuntu:300" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Lifestyle, photo and travel website" />
+    <meta
+      name="keywords"
+      content="blog, lifestyle, photodiary, travel, monochrome"
+    />
+    <meta name="author" content="Mila Ziabchenko" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/turtle.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mediaqueries.css" />
+    <script src="js/form.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+    <title>Minim&oslash;</title>
+  </head>
 
-<body>
-	<header>
-		<div class="logoNav">
-			<h1>minimø</h1>
-		</div>
-		<nav>
-			<div class="logoNav navRight">
-				<a href="#">lifestyle</a>
-				<a href="#">photodiary</a>
-				<a href="#">music</a>
-				<a href="#">travel</a>
-			</div>
-			<div class="clearfix"></div>
-		</nav>
-	</header>
+  <body>
+    <header>
+      <div class="flex">
+        <h1 class="logo"><a href="index.html"> minim&oslash;</a></h1>
+        <nav>
+          <ul class="overlay">
+            <li>
+              <a href="index.html">home</a>
+            </li>
+            <li>
+              <a href="photodiary.html">photodiary</a>
+            </li>
+            <li>
+              <a href="lifestyle.html">lifestyle</a>
+            </li>
+            <li>
+              <a href="travel.html">travel</a>
+            </li>
+          </ul>
+          <div class="menu-btn flex">
+            <div class="menu-btn-line flex"></div>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-	<main>
-		<article class="mainArticle">
-			<img class="mainImage" src="img/image1.png" alt="image1">
-			<section class="mainPost">
-				<h4><a href="#">photodiary</a></h4>
-				<h2>The perfect weekend getaway</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-				<h4><a href="#">leave a comment</a></h4>
-			</section>
-		</article>
+    <main>
+      <!-- Main blog -->
+      <section class="main-blog">
+        <div class="main-article">
+          <div class="main-image-container">
+            <img
+              class="main-image"
+              src="img/man.webp"
+              alt="A man beholding a dark scenery"
+            />
+          </div>
+          <div class="main-post container">
+            <h2>The perfect weekend getaway</h2>
+            <p>
+              A cry of joyous admiration escaped from us all as the spectacle
+              before us was indeed sublime...
+            </p>
+            <p class="text-toggle text-hidden">
+              The sky of a deep dark blue was hung with innumerable stars, which
+              seemed to float in the limpid ether, and the rolling vapours
+              through which we had passed were drawn like a sable curtain
+              between us and the lower world. The stillness was so profound that
+              we could hear the beating of our own hearts.
+            </p>
+            <p>
+              Apparently we had reached a great height in the atmosphere, for
+              the sky was a dead black, and the stars had ceased to
+              twinkle...<span>
+                By the same illusion which lifts the horizon of the sea to the
+                level of the spectator on a hillside, the sable cloud beneath
+                was dished out, and the car seemed to float in the middle of an
+                immense dark sphere, whose upper half was strewn with silver.
+                Looking down into the dark gulf below, I could see a ruddy light
+                streaming through a rift in the clouds. It was probably a last
+                glimpse of London, or some neighboring town; but soon the
+                rolling vapours closed, and shut it out.</span
+              ><span>
+                Looking down into the dark gulf below, I could see a ruddy light
+                streaming through a rift in the clouds. As I went on, still
+                gaining velocity, the palpitation of night and day merged into
+                one continuous greyness...</span
+              >
+            </p>
+            <button type="button" id="readMore">read more</button>
+          </div>
+        </div>
+      </section>
 
-		<section>
-			<div class="wrapper">
-				<div class="row row1">
-					<article class="smallPost leftPost">
-						<section>
-							<img class="image" src="img/image2.png" alt="image2">
-							<h4><a href="#">music</a></h4>
-							<h2>More than just a music festival</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-						</section>
-					</article>
+      <!-- Blogs -->
+      <div class="container">
+        <div class="grid row row-1">
+          <article class="small-post">
+            <img
+              class="small-post-image"
+              src="img/boy_and_the_summer_rain.webp"
+              alt="A boy and the summer rain"
+              loading="lazy"
+            />
+            <a href="photodiary.html">photodiary</a>
+            <h2>More than just a summer rain</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+            </p>
+          </article>
 
-					<article class="smallPost">
-						<section>
-							<img class="image" src="img/image3.png" alt="image3">
-							<h4><a href="#">lifestyle</a></h4>
-							<h2>Life tastes better with coffee</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-						</section>
-					</article>
-				</div>
+          <article class="small-post">
+            <img
+              class="small-post-image"
+              src="img/a_scottish_fold_kitten.webp"
+              alt="A scottish fold kitten"
+              loading="lazy"
+            />
+            <a href="lifestyle.html">lifestyle</a>
+            <h2>Life feels better with true friends</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+            </p>
+          </article>
+        </div>
 
-				<div class="row row2">
-					<article class="smallPost leftPost">
-						<section>
-							<img class="image" src="img/image4.png" alt="image4">
-							<h4><a href="#">travel</a></h4>
-							<h2>American dream</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-						</section>
-					</article>
+        <div class="grid row row-2">
+          <article class="small-post">
+            <img
+              class="small-post-image"
+              src="img/maternity.webp"
+              alt="A pregnant woman with children"
+              loading="lazy"
+            />
+            <a href="photodiary.html">photodiary</a>
+            <h2>Silent dreams</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+            </p>
+          </article>
 
-					<article class="smallPost">
-						<section>
-							<img class="image" src="img/image5.png" alt="image5">
-							<h4><a href="#">travel</a></h4>
-							<h2>A day exploring the Alps</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-						</section>
-					</article>
-				</div>
-			</div>
+          <article class="small-post">
+            <img
+              class="small-post-image"
+              src="img/travelling_girl.webp"
+              alt="A traveling girl in the forest"
+              loading="lazy"
+            />
+            <a href="travel.html">travel</a>
+            <h2>Sleepless night</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+            </p>
+          </article>
+        </div>
 
-			<article class="signUp">
-				<h2>Sign up for our newsletter!</h2>
-				<form name="myForm">
-					<input type="email" name="email" placeholder="Enter a valid email address">
-					<img src="img/send-icon.png" id="submit" title="Submit">
-					<hr class="line">
-				</form>
-				<div class="flashMessageContainer"></div>
-			</article>
-			
-			<div class="wrapper">
-				<div class="row row3">
-					<article class="smallPost leftPost">
-						<section>
-							<img class="image" src="img/image6.png" alt="image6">
-							<h4><a href="#">lifestyle</a></h4>
-							<h2>Top 10 songs for hiking</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-						</section>
-					</article>
+        <div class="grid row row-3">
+          <article class="small-post">
+            <img
+              class="small-post-image"
+              src="img/elephant_on_the_road.webp"
+              alt="An elephant on the road"
+              loading="lazy"
+            />
+            <a href="travel.html">travel</a>
+            <h2>Midnight visiter</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+            </p>
+          </article>
 
-					<article class="smallPost">
-						<section>
-							<img class="image" src="img/image7.png" alt="image7">
-							<h4><a href="#">photodiary</a></h4>
-							<h2>Cold winter days</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-						</section>
-					</article>
-				</div>
-			</div>
+          <article class="small-post">
+            <img
+              class="small-post-image"
+              src="img/dark_shadows.webp"
+              alt="Snowy mountains"
+              loading="lazy"
+            />
+            <a href="travel.html">travel</a>
+            <h2>My heart's in the highlands</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris...
+            </p>
+          </article>
+        </div>
+      </div>
 
-			<button class="loadMore">Load more</button>
-		</section>
-	</main>
+      <!-- Load more -->
+      <button type="button" id="loadMore">Load more</button>
 
-	<footer>
-		<div class="footerItems">
-			<a href="#">Terms and conditions</a>
-			<a href="#">Privacy</a>
-		</div>
-		<div class="footerItems follow">
-			<span>Follow</span>
-			<a href="#"><img src="img/facebook.png" alt="Facebook" title="Facebook"></a>
-			<a href="#"><img src="img/twitter.png" alt="Twitter" title="Twitter"></a>
-			<a href="#"><img src="img/instagram.png" alt="Instagram" title="Instagram"></a>
-		</div>
-	</footer>
+      <!-- Sign up -->
+      <section class="sign-up">
+        <h2>the best of minim&oslash; delivered to your inbox</h2>
+        <h3>
+          sign up for more inspiring photos, stories, and special offers from
+          minim&oslash;
+        </h3>
+        <form
+          id="form"
+          class="flex"
+          autocomplete="off"
+          novalidate
+          name="contact"
+          method="POST"
+        >
+          <input type="email" name="email" placeholder="enter your email" />
+          <input
+            type="image"
+            src="img/double_arrow.svg"
+            alt="Submit"
+            name="submit"
+            title="Submit"
+          />
+        </form>
+        <div class="flash-message-container"></div>
+      </section>
+    </main>
 
-	<script src="script.js"></script>
-</body>
+    <!-- Footer -->
+    <footer>
+      <div class="container flex">
+        <ul class="social flex">
+          <li>
+            <a href="#"
+              ><img
+                src="img/instagram_logo_icon.svg"
+                alt="Instagram icon"
+                title="Instagram"
+            /></a>
+          </li>
+        </ul>
+        <nav>
+          <ul>
+            <li><a href="#">terms of use</a></li>
+            <li><a href="#">privacy</a></li>
+          </ul>
+        </nav>
+        <p>Copyright &copy; 2020-2024 Minim&oslash;</p>
+      </div>
+    </footer>
+  </body>
 </html>
-

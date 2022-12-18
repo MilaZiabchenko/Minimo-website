@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inconsolata:wght@200;300;400;500;600;700;900&display=swap');
+
+/* Basic fonts and colors */
+:root {
+  --primary-font: 'Inconsolata', monospace;
+  --secondary-font: 'Dancing Script', cursive;
+  --light-color: hsl(217, 29%, 97%);
+  --primary-color: hsl(0, 0%, 32%);
+  --secondary-color: hsl(30, 15%, 60%);
+  --primary-green-color: hsl(120, 82%, 42%);
+  --secondary-green-color: hsl(142, 82%, 42%);
+  --green-background: hsl(109, 50%, 91%);
+  --red-color: hsl(0, 100%, 50%);
+  --red-background: hsl(12, 100%, 94%);
+  --light-background: hsl(0, 0%, 96%);
+  --box-shadow-color: 1px 1px 9px hsla(0, 0%, 0%, 0.2);
+  --green-filter: invert(33%) sepia(55%) saturate(550%) hue-rotate(65deg)
+    brightness(150%) contrast(100%) opacity(100%);
+}
+
+/* Global styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  color: var(--light-color);
+  background-color: var(--primary-green-color);
+}
+
+/* Typography */
+.logo a {
+  font: bold 1.125em var(--primary-font);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.logo a:hover {
+  letter-spacing: 0.5em;
+  color: var(--primary-green-color);
+}
+
+h2,
+h3,
+p,
+input,
+button,
+footer a {
+  font: bold 1.12em var(--primary-font);
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+button {
+  display: block;
+  width: 300px;
+  height: 60px;
+  margin: 5rem auto;
+  border: 3px solid var(--secondary-color);
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 6px;
+  box-shadow: var(--box-shadow-color);
+  font-size: 1.35em;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--secondary-color);
+  background-color: var(--light-color);
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+}
+
+button:hover {
+  border-color: var(--primary-green-color);
+  outline-color: var(--primary-green-color);
+  box-shadow: none;
+  color: var(--light-color);
+  background-image: linear-gradient(
+    to right,
+    var(--primary-green-color),
+    var(--secondary-green-color)
+  );
+}
+
+:is(header nav, .main-post, .small-post) a {
+  font: 700 1.75em var(--primary-font);
+}
+
+header a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-green-color);
+}
+
+.page-heading {
+  width: fit-content;
+  margin: 6.5rem auto;
+  border-bottom: 3px solid var(--primary-green-color);
+  font: 700 3.5em var(--primary-font);
+  color: var(--primary-green-color);
+}
+
+:is(.main-post, .small-post) :is(h2, p) {
+  font: 700 1.3em var(--secondary-font);
+}
+
+:is(.main-post, .sign-up) h2 {
+  font-size: 3.5em;
+}
+
+.small-post h2 {
+  font-size: 2.5em;
+}
+
+.sign-up :is(h2, h3),
+input {
+  font-variant: small-caps;
+  font-weight: 500;
+  text-align: center;
+  color: var(--light-color);
+}
+
+.sign-up h3 {
+  font-size: 2em;
+}
+
+input {
+  font-size: 1.5em;
+}
+
+p.flash {
+  font-size: 1.65em;
+  font-variant: small-caps;
+}
+
+p.valid {
+  color: var(--primary-green-color);
+}
+
+p.invalid {
+  color: var(--red-color);
+}
+
+footer :is(a, p) {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+}
+
+/* Layout */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  gap: 6rem;
+}
+
+li {
+  display: inline-block;
+}
+
+img,
+input[type='image'] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header */
+header {
+  height: 100%;
+  padding: 1.2rem 5rem;
+  background-color: var(--light-background);
+}
+
+header li {
+  padding-left: 5rem;
+}
+
+/* Main blog */
+.main-blog {
+  background-color: var(--light-background);
+}
+
+.main-image-container {
+  overflow: hidden;
+}
+
+.main-image {
+  transition: all 1000ms ease;
+}
+
+.main-image:hover {
+  transform: scale(1.12);
+  opacity: 0.95;
+}
+
+.main-post {
+  padding: 3rem;
+  text-align: center;
+}
+
+.main-post h2 {
+  margin-bottom: 3.5rem;
+}
+
+.main-post p {
+  max-width: 62ch;
+  margin: 1.2rem auto;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.text-hidden {
+  display: none;
+}
+
+/* Blogs */
+.row {
+  margin: 7.5rem 0;
+}
+
+.small-post {
+  width: 572px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+  box-shadow: var(--box-shadow-color);
+  transition: transform 350ms ease-out;
+}
+
+.small-post-image {
+  width: 540px;
+  height: 360px;
+  margin-bottom: 1rem;
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 6px;
+  box-shadow: var(--box-shadow-color);
+}
+
+.small-post :is(h2, a) {
+  margin: 1.35rem 0;
+}
+
+.small-post p {
+  line-height: 1.5;
+}
+
+.small-post:hover {
+  transform: scale(1.06);
+}
+
+/* Sign up */
+.sign-up {
+  width: 100%;
+  height: 580px;
+  margin: 7.5rem 0 0;
+  padding: 3rem;
+  background-color: var(--primary-color);
+  background: url('../img/london.webp') no-repeat top center/cover;
+  opacity: 0.95;
+}
+
+.sign-up :is(h2, h3) {
+  max-width: 35ch;
+  margin: 2rem auto;
+  line-height: 1;
+}
+
+form,
+.flash {
+  width: 420px;
+  height: 84px;
+  outline: 3px solid;
+  outline-offset: -3px;
+}
+
+form {
+  display: block;
+  margin: 3rem auto 1rem;
+  padding: 1rem;
+  outline-color: var(--light-color);
+  background-color: var(--primary-color);
+  opacity: 0.82;
+}
+
+input[type='email'] {
+  display: block;
+  width: 100%;
+  max-width: 345px;
+  height: 50px;
+  padding-bottom: 5px;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  outline: 1px solid hsla(0, 0%, 100%, 0.5);
+  background-color: var(--primary-color);
+}
+
+input[type='email']:focus {
+  outline-color: var(--light-color);
+  color: var(--light-color);
+}
+
+input[type='email']::placeholder {
+  color: var(--light-color);
+}
+
+input[type='email']:focus::placeholder {
+  visibility: hidden;
+}
+
+input[type='image'] {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(1);
+  cursor: pointer;
+  transition: transform 250ms ease;
+}
+
+input[type='image']:hover {
+  filter: var(--green-filter);
+  transform: translateX(10px);
+}
+
+input[type='image']:focus {
+  outline: none;
+}
+
+.flash {
+  margin: 1rem auto;
+  display: grid;
+  place-content: center;
+}
+
+.valid {
+  outline-color: var(--primary-green-color);
+  background-color: var(--green-background);
+}
+
+.invalid {
+  outline-color: var(--red-color);
+  background-color: var(--red-background);
+}
+
+/* Footer */
+footer {
+  height: 100%;
+  min-height: 100px;
+  padding: 3rem 0;
+  background-color: hsla(30, 12%, 67%, 0.25);
+}
+
+footer > .flex {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social img {
+  width: 1.95rem;
+  height: 1.95rem;
+  filter: invert(0.55);
+}
+
+.social img:hover {
+  filter: var(--green-filter);
+}
+
+footer li {
+  padding: 0 0.95em;
+}
+
+footer nav {
+  margin: 1.35em;
+}
